@@ -76,8 +76,7 @@ namespace Test
                     if (Confdata.Get(key).Contains("@")) //получение эмеил-адреса для отправки
                     {
                         SendMail("smtp.mail.ru", "testforjob2022@mail.ru", "iZgSFwGHxn0YgtPJ6kv0", Confdata.Get(key), "Тема письма", "Отчет о работе", "SiteTry.xml");
-                        logger.Trace("Адрес отправки: " + Confdata.Get(key) + " Результат: письмо отправленно");
-                        Console.WriteLine("Адрес отправки: " + Confdata.Get(key) + " Результат: письмо отправленно");
+                        
 
 
                     }
@@ -193,6 +192,8 @@ namespace Test
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.Send(mail);
                 mail.Dispose();
+                logger.Trace("Адрес отправки: " + mailto + " Результат: письмо отправленно");
+                Console.WriteLine("Адрес отправки: " + mailto + " Результат: письмо отправленно");
             }
             catch (Exception e)
             {
